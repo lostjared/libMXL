@@ -1,0 +1,4 @@
+all:
+	bison -d parser.yy
+	flex lexer.l
+	mv lex.yy.c lex.yy.cc
