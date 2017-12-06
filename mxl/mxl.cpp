@@ -4,8 +4,8 @@
 #include<vector>
 #include<cstdarg>
 
-extern int yyparse();
-extern void yyrestart(FILE *);
+extern int mxlparse();
+extern void mxlrestart(FILE *);
 std::map<std::string, std::map<std::string, std::string> > vars;
 std::string current_name="default";
 
@@ -137,7 +137,7 @@ namespace mxl {
     }
 
     bool readSource() {
-        if(yyparse() == 0 && error_count == 0)
+        if(mxlparse() == 0 && error_count == 0)
             return true;
         return false;
     }
@@ -149,7 +149,7 @@ namespace mxl {
             std::cerr << "Error oculd not open file: " << data << "\n";
             return false;
         }
-        yyrestart(fptr);
+        mxlrestart(fptr);
         if(!readSource()) {
             fclose(fptr);
             return false;
