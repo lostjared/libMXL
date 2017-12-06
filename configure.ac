@@ -12,4 +12,4 @@ AC_PROG_LN_S
 AC_PROG_MAKE_SET
 
 
-AC_OUTPUT(Makefile mxl/Makefile test/Makefile)
+AC_OUTPUT(Makefile mxl/Makefile mxl.pc test/Makefile)
