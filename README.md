@@ -28,16 +28,4 @@ mxl::MXL *parser = mxl::MXL::parseMXL("code.mxl");
 
 don't forget to delete parser when done or use a smart pointer
 
-std::unique_ptrmxl::MXL parser(mxl::MXL::parseMXL("source.mxl"));
 
-if(parser) {
-
-// use parser
-
-if(parser->keyValid("Size", "int")) {
-
-    std::string val = parser->table("Size", "int");
-
-    std::cout << "Found Size value is: " << val << "\n";
-}
-}
