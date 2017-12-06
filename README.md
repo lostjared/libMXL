@@ -4,7 +4,7 @@ Simple tagging language use it like this:
 
 Cateogry =>
 
-"Key" = "value"
+Key = "value"
 
 Width = "200"
 
