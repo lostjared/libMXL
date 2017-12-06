@@ -5,9 +5,10 @@
 #include<map>
 #include"mxl.hpp"
 
-extern int yylex();
+extern int mxllex();
 
 %}
+
 
 %union {
     Symbol *s;

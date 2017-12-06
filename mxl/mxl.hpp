@@ -6,10 +6,10 @@
 #include<map>
 #include "symbol.hpp"
 
-extern void yyerror(const char *src, ...);
-extern int yylineno;
 extern std::string current_name;
 extern std::map<std::string, std::map<std::string, std::string> > vars;
+extern void mxlerror(const char *src, ...);
+extern int mxllineno;
 
 namespace mxl {
     class MXL {

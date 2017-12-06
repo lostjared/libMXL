@@ -9,6 +9,7 @@ extern void yyrestart(FILE *);
 std::map<std::string, std::map<std::string, std::string> > vars;
 std::string current_name="default";
 
+
 namespace mxl {
     
     int error_count = 0;
@@ -169,10 +170,10 @@ namespace mxl {
     }
 }
 
-void yyerror(const char *src, ...) {
+void mxlerror(const char *src, ...) {
     va_list ap;
     va_start(ap, src);
-    fprintf(stderr, "Error on Line %d: ", yylineno);
+    fprintf(stderr, "Error on Line %d: ", mxllineno);
     vfprintf(stderr, src, ap);
     fprintf(stderr, "\n");
     mxl::error_count ++;

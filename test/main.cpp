@@ -3,7 +3,6 @@
 #include"mxl.hpp"
 #include<memory>
 
-
 int main(int argc, char **argv) {
     if(argc != 2) {
         std::cout << "Error requires one argument..\n";

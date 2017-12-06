@@ -58,6 +58,14 @@
 /* Using locations.  */
 #define YYLSP_NEEDED 0
 
+/* Substitute the variable and function names.  */
+#define yyparse mxlparse
+#define yylex   mxllex
+#define yyerror mxlerror
+#define yylval  mxllval
+#define yychar  mxlchar
+#define yydebug mxldebug
+#define yynerrs mxlnerrs
 
 
 /* Tokens.  */
@@ -90,7 +98,7 @@
 #include<map>
 #include"mxl.hpp"
 
-extern int yylex();
+extern int mxllex();
 
 
 
@@ -114,13 +122,13 @@ extern int yylex();
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 12 "parser.yy"
+#line 13 "parser.yy"
 {
     Symbol *s;
     List *l;
 }
 /* Line 193 of yacc.c.  */
-#line 124 "parser.tab.cc"
+#line 132 "parser.tab.cc"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -133,7 +141,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 137 "parser.tab.cc"
+#line 145 "parser.tab.cc"
 
 #ifdef short
 # undef short
@@ -417,7 +425,7 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    26,    26,    27,    28,    29,    30,    35,    39,    44
+       0,    27,    27,    28,    29,    30,    31,    36,    40,    45
 };
 #endif
 
@@ -1319,7 +1327,7 @@ yyreduce:
   switch (yyn)
     {
         case 7:
-#line 35 "parser.yy"
+#line 36 "parser.yy"
     { vars[current_name][(yyvsp[(1) - (3)].s)->name] = (yyvsp[(3) - (3)].s)->name;
     delete (yyvsp[(1) - (3)].s);
     delete (yyvsp[(3) - (3)].s);
@@ -1327,7 +1335,7 @@ yyreduce:
     break;
 
   case 8:
-#line 39 "parser.yy"
+#line 40 "parser.yy"
     { vars[current_name][(yyvsp[(1) - (3)].s)->name] = mxl::trimQuotes((yyvsp[(3) - (3)].s)->name);
     delete (yyvsp[(1) - (3)].s);
     delete (yyvsp[(3) - (3)].s);
@@ -1335,7 +1343,7 @@ yyreduce:
     break;
 
   case 9:
-#line 44 "parser.yy"
+#line 45 "parser.yy"
     {
 	current_name = (yyvsp[(1) - (2)].s)->name;
 	delete (yyvsp[(1) - (2)].s);
@@ -1344,7 +1352,7 @@ yyreduce:
 
 
 /* Line 1267 of yacc.c.  */
-#line 1348 "parser.tab.cc"
+#line 1356 "parser.tab.cc"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1558,6 +1566,6 @@ yyreturn:
 }
 
 
-#line 49 "parser.yy"
+#line 50 "parser.yy"
 
 
