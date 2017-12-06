@@ -1,5 +1,5 @@
 all:
 	bison -d parser.yy -p mxl
 	mv parser.tab.cc parser.tab.cpp
-	flex -P mx lexer.l
+	flex lexer.l
 	mv lex.mxl.c lex.mxl.cc
