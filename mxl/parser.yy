@@ -41,7 +41,16 @@ val_list: ID '=' ID { vars[current_name][$1->name] = $3->name;
     delete $1;
     delete $3;
 }
+| STR '=' STR { vars[current_name][mxl::trimQuotes($1->name)] = mxl::trimQuotes($3->name); 
+    delete $1;
+    delete $3;
+}
+| STR '=' ID { vars[current_name][mxl::trimQuotes($1->name)] = $3->name;
+    delete $1;
+    delete $3;
+}
 ;
+
 val_start: ID ARROW {
 	current_name = $1->name;
 	delete $1;
