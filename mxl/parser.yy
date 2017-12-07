@@ -55,5 +55,5 @@ val_start: ID ARROW {
 	current_name = $1->name;
 	delete $1;
 }
-
+;
 %%
