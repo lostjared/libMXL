@@ -3,7 +3,10 @@
 
 #include<iostream>
 #include<string>
+#include<sstream>
 #include<map>
+#include<cstdlib>
+#include<cstdio>
 #include "symbol.hpp"
 
 extern std::string current_name;
@@ -23,6 +26,16 @@ namespace mxl {
         MXL &operator=(MXL &&m);
         std::string &operator()(std::string cat, std::string key);
         std::string &table(std::string cat, std::string key);
+        
+        template<typename T>
+        void setTableValue(std::string cat, std::string key, const T &type) {
+            std::ostringstream stream;
+            stream << type;
+            vars[cat][key] = stream.str();
+        }
+        
+        long getTableInteger(std::string cat, std::string key);
+        double getTableDouble(std::string cat, std::string key);
         void setValue(std::string cat, std::string key, std::string val);
         void echoTokens();
         bool writeToFile(std::string filename);

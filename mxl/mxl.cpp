@@ -57,6 +57,13 @@ namespace mxl {
         return vars[cat][key];
     }
     
+    long MXL::getTableInteger(std::string cat, std::string key) {
+        return atol(vars[cat][key].c_str());
+    }
+    double MXL::getTableDouble(std::string cat, std::string key) {
+        return atof(vars[cat][key].c_str());
+    }
+    
     bool MXL::keyValid(const std::string &cat, const std::string &key) {
         auto i = vars.find(cat);
         if(i == vars.end())

@@ -8,12 +8,11 @@
 int main() {
     std::unique_ptr<mxl::MXL> parser(mxl::MXL::parseMXL("test.mxl"));
     if(parser) {
-        int value = atoi(parser->table("Counter", "Ran").c_str());
+        //int value = atoi(parser->table("Counter", "Ran").c_str());
+        long value = parser->getTableInteger("Counter", "Ran");
         ++value;
         std::cout << "Program ran: " << value << " times..\n";
-        std::ostringstream stream;
-        stream << value;
-        parser->table("Counter", "Ran") = stream.str();
+        parser->setTableValue("Counter", "Ran", value);
         parser->sortedWriteToFile("test.mxl");
     } else {
         std::cerr << "Could not open test.mxl is it in this directory?...\n Creating file..\n";
