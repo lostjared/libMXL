@@ -15,7 +15,7 @@ int main() {
         parser->table("Counter", "Ran") = stream.str();
         parser->sortedWriteToFile("test.mxl");
     } else {
-        std::cerr << "Could not open test.mxl..\n";
+        std::cerr << "Could not open test.mxl is it in this directory?...\n";
     }
     return 0;
 }
