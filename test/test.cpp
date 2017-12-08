@@ -1,5 +1,6 @@
 #include<iostream>
 #include<sstream>
+#include<fstream>
 #include<memory>
 #include<string>
 #include<mxl.hpp>
@@ -15,7 +16,15 @@ int main() {
         parser->table("Counter", "Ran") = stream.str();
         parser->sortedWriteToFile("test.mxl");
     } else {
-        std::cerr << "Could not open test.mxl is it in this directory?...\n";
+        std::cerr << "Could not open test.mxl is it in this directory?...\n Creating file..\n";
+        std::fstream file;
+        file.open("test.mxl", std::ios::out);
+        if(!file.is_open()) {
+            std::cerr << "Could not open file..\n";
+            exit(EXIT_FAILURE);
+        }
+        file << "Counter =>\nRan = \"0\"\n\n";
+        file.close();
     }
     return 0;
 }
