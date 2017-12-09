@@ -16,8 +16,8 @@ extern int mxllineno;
 
 namespace mxl {
     class MXL {
-        MXL() = delete;
     public:
+        MXL() = default;
         MXL(const std::map<std::string, std::map<std::string, std::string>> &v);
         MXL(std::map<std::string, std::map<std::string, std::string>> &&v);
         MXL(const MXL &m);
