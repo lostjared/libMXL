@@ -16,14 +16,9 @@ int main() {
         parser->sortedWriteToFile("test.mxl");
     } else {
         std::cerr << "Could not open test.mxl is it in this directory?...\n Creating file..\n";
-        std::fstream file;
-        file.open("test.mxl", std::ios::out);
-        if(!file.is_open()) {
-            std::cerr << "Could not open file..\n";
-            exit(EXIT_FAILURE);
-        }
-        file << "Counter =>\nRan = \"0\"\n\n";
-        file.close();
+        mxl::MXL obj;
+        obj.setTableValue("Counter", "Ran", "0");
+        obj.sortedWriteToFile("test.mxl");
     }
     return 0;
 }
