@@ -64,6 +64,14 @@ namespace mxl {
         return atof(vars[cat][key].c_str());
     }
     
+    void MXL::mergeMap(std::map<std::string, std::map<std::string, std::string>> &m) {
+        for(auto i = m.begin(); i != m.end(); ++i) {
+            for(auto z = i->second.begin(); z != i->second.end(); ++z) {
+                vars[i->first][z->first] = z->second;
+            }
+        }
+    }
+    
     bool MXL::keyValid(const std::string &cat, const std::string &key) {
         auto i = vars.find(cat);
         if(i == vars.end())
