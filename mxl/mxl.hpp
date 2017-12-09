@@ -42,8 +42,9 @@ namespace mxl {
         bool sortedWriteToFile(std::string filename);
         static MXL *parseMXL(const std::string &n);
         void mergeMap(std::map<std::string, std::map<std::string, std::string>> &m);
+        void mergeMap(MXL &m);
         bool keyValid(const std::string &cat, const std::string &key);
-        std::map<std::string, std::map<std::string, std::string>> &map() { return vars; }
+        std::map<std::string, std::map<std::string, std::string>> &mxlmap() { return vars; }
         std::map<std::string, std::map<std::string, std::string>> *operator->() { return &vars; }
     private:
         std::map<std::string, std::map<std::string, std::string>> vars;

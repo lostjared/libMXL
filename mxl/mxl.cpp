@@ -71,6 +71,9 @@ namespace mxl {
             }
         }
     }
+    void MXL::mergeMap(MXL &m) {
+        mergeMap(m.mxlmap());
+    }
     
     bool MXL::keyValid(const std::string &cat, const std::string &key) {
         auto i = vars.find(cat);
