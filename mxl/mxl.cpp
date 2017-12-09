@@ -37,6 +37,11 @@ namespace mxl {
         return *this;
     }
     
+    MXL &MXL::operator+=(MXL &m) {
+        mergeMap(m.mxlmap());
+        return *this;
+    }
+    
     MXL *MXL::parseMXL(const std::string &n) {
         if(!readSource(n)) return nullptr;
         MXL *m = new MXL(::vars);
