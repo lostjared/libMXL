@@ -1,0 +1,12 @@
+Data =>
+"Apple" = "1"
+"bears" = "2"
+
+Total =>
+Lines = "20"
+Operator = "++"
+Seek = "104"
+
+ReadWrite =>
+Location = "1234"
+"Apple Sauce"  = "55"
