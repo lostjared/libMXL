@@ -59,6 +59,14 @@ namespace mxl {
         return m;
     }
     
+    bool MXL::loadFromFile(const std::string &n) {
+        if(!readSource(n)) return false;
+        vars = ::vars;
+        if(!::vars.empty())
+            ::vars.erase(::vars.begin(), ::vars.end());
+        return true;
+    }
+    
     std::string &MXL::operator()(std::string cat, std::string key) {
         return vars[cat][key];
     }

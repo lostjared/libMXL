@@ -30,6 +30,8 @@ namespace mxl {
         std::string &operator()(std::string cat, std::string key);
         std::string &table(std::string cat, std::string key);
         
+        bool loadFromFile(const std::string &n);
+        
         template<typename T>
         void setTableValue(std::string cat, std::string key, const T &type) {
             std::ostringstream stream;
