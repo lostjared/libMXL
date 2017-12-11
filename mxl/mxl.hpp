@@ -25,6 +25,8 @@ namespace mxl {
         MXL &operator=(const MXL &m);
         MXL &operator=(MXL &&m);
         MXL &operator+=(MXL &m);
+        MXL &operator+=(std::map<std::string, std::map<std::string, std::string>> &v);
+        
         std::string &operator()(std::string cat, std::string key);
         std::string &table(std::string cat, std::string key);
         
