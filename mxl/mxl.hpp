@@ -15,6 +15,10 @@ extern void mxlerror(const char *src, ...);
 extern int mxllineno;
 
 namespace mxl {
+    
+    using subIt = std::map<std::string, std::string>::iterator;
+    using It = std::map<std::string, std::map<std::string, std::string>>::iterator;
+    
     class MXL {
     public:
         MXL() = default;
@@ -38,6 +42,12 @@ namespace mxl {
             stream << type;
             vars[cat][key] = stream.str();
         }
+        
+        
+        subIt begin_sub(const std::string &n);
+        subIt end_sub(const std::string &n);
+        It begin_mxl();
+        It end_mxl();
         
         long getTableInteger(std::string cat, std::string key);
         double getTableDouble(std::string cat, std::string key);

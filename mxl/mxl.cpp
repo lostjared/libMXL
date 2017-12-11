@@ -204,6 +204,21 @@ namespace mxl {
             }
         }
     }
+    
+    subIt MXL::begin_sub(const std::string &n) {
+        return vars[n].begin();
+    }
+    subIt MXL::end_sub(const std::string &n) {
+        return vars[n].end();
+    }
+    
+    It MXL::begin_mxl() {
+        return vars.begin();
+    }
+    It MXL::end_mxl() {
+        return vars.end();
+    }
+
 }
 
 void mxlerror(const char *src, ...) {
