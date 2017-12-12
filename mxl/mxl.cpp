@@ -111,9 +111,9 @@ namespace mxl {
         std::unordered_map<std::string, std::unordered_map<std::string, std::string> >::iterator it;
         std::unordered_map<std::string, std::string>::iterator n;
         for(it = vars.begin(); it != vars.end(); it++) {
-            std::cout << "Start Tag: [" << it->first << "]\n";
+            std::cout << "Tag: [" << it->first << "]\n";
             for(n = it->second.begin(); n != it->second.end(); n++) {
-                std::cout << "Key: [" << n->first << "] := " << n->second << "\n";
+                std::cout << "\tKey: [" << n->first << "] := " << n->second << "\n";
             }
         }
     }
@@ -198,9 +198,9 @@ namespace mxl {
         std::unordered_map<std::string, std::unordered_map<std::string, std::string> >::iterator it;
         std::unordered_map<std::string, std::string>::iterator n;
         for(it = vars.begin(); it != vars.end(); it++) {
-            std::cout << "Start Tag: [" << it->first << "]\n";
+            std::cout << "Tag: [" << it->first << "]\n";
             for(n = it->second.begin(); n != it->second.end(); n++) {
-                std::cout << "Key: [" << n->first << "] := " << n->second << "\n";
+                std::cout << "\tKey: [" << n->first << "] := " << n->second << "\n";
             }
         }
     }
