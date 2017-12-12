@@ -6,7 +6,7 @@
 
 extern int mxlparse();
 extern void mxlrestart(FILE *);
-std::map<std::string, std::map<std::string, std::string> > vars;
+std::unordered_map<std::string, std::unordered_map<std::string, std::string> > vars;
 std::string current_name="default";
 
 
@@ -14,11 +14,11 @@ namespace mxl {
     
     int error_count = 0;
     
-    MXL::MXL(const std::map<std::string, std::map<std::string, std::string>> &v) {
+    MXL::MXL(const std::unordered_map<std::string, std::unordered_map<std::string, std::string>> &v) {
         vars = v;
     }
     
-    MXL::MXL(std::map<std::string, std::map<std::string, std::string>> &&v) {
+    MXL::MXL(std::unordered_map<std::string, std::unordered_map<std::string, std::string>> &&v) {
         vars = std::move(v);
     }
     
@@ -42,7 +42,7 @@ namespace mxl {
         return *this;
     }
     
-    MXL &MXL::operator+=(std::map<std::string, std::map<std::string, std::string>> &v) {
+    MXL &MXL::operator+=(std::unordered_map<std::string, std::unordered_map<std::string, std::string>> &v) {
         mergeMap(v);
         return *this;
     }
@@ -82,7 +82,7 @@ namespace mxl {
         return atof(vars[cat][key].c_str());
     }
     
-    void MXL::mergeMap(std::map<std::string, std::map<std::string, std::string>> &m) {
+    void MXL::mergeMap(std::unordered_map<std::string, std::unordered_map<std::string, std::string>> &m) {
         for(auto i = m.begin(); i != m.end(); ++i) {
             for(auto z = i->second.begin(); z != i->second.end(); ++z) {
                 vars[i->first][z->first] = z->second;
@@ -108,8 +108,8 @@ namespace mxl {
     }
     
     void MXL::echoTokens() {
-        std::map<std::string, std::map<std::string, std::string> >::iterator it;
-        std::map<std::string, std::string>::iterator n;
+        std::unordered_map<std::string, std::unordered_map<std::string, std::string> >::iterator it;
+        std::unordered_map<std::string, std::string>::iterator n;
         for(it = vars.begin(); it != vars.end(); it++) {
             std::cout << "Start Tag: [" << it->first << "]\n";
             for(n = it->second.begin(); n != it->second.end(); n++) {
@@ -195,8 +195,8 @@ namespace mxl {
     }
     
     void echoTokens() {
-        std::map<std::string, std::map<std::string, std::string> >::iterator it;
-        std::map<std::string, std::string>::iterator n;
+        std::unordered_map<std::string, std::unordered_map<std::string, std::string> >::iterator it;
+        std::unordered_map<std::string, std::string>::iterator n;
         for(it = vars.begin(); it != vars.end(); it++) {
             std::cout << "Start Tag: [" << it->first << "]\n";
             for(n = it->second.begin(); n != it->second.end(); n++) {

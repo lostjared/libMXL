@@ -4,32 +4,33 @@
 #include<iostream>
 #include<string>
 #include<sstream>
-#include<map>
+#include<unordered_map>
 #include<cstdlib>
 #include<cstdio>
 #include "symbol.hpp"
 
+
 extern std::string current_name;
-extern std::map<std::string, std::map<std::string, std::string> > vars;
+extern std::unordered_map<std::string, std::unordered_map<std::string, std::string> > vars;
 extern void mxlerror(const char *src, ...);
 extern int mxllineno;
 
 namespace mxl {
     
-    using subIt = std::map<std::string, std::string>::iterator;
-    using It = std::map<std::string, std::map<std::string, std::string>>::iterator;
+    using subIt = std::unordered_map<std::string, std::string>::iterator;
+    using It = std::unordered_map<std::string, std::unordered_map<std::string, std::string>>::iterator;
     
     class MXL {
     public:
         MXL() = default;
-        MXL(const std::map<std::string, std::map<std::string, std::string>> &v);
-        MXL(std::map<std::string, std::map<std::string, std::string>> &&v);
+        MXL(const std::unordered_map<std::string, std::unordered_map<std::string, std::string>> &v);
+        MXL(std::unordered_map<std::string, std::unordered_map<std::string, std::string>> &&v);
         MXL(const MXL &m);
         MXL(MXL &&m);
         MXL &operator=(const MXL &m);
         MXL &operator=(MXL &&m);
         MXL &operator+=(MXL &m);
-        MXL &operator+=(std::map<std::string, std::map<std::string, std::string>> &v);
+        MXL &operator+=(std::unordered_map<std::string, std::unordered_map<std::string, std::string>> &v);
         
         std::string &operator()(std::string cat, std::string key);
         std::string &table(std::string cat, std::string key);
@@ -56,13 +57,13 @@ namespace mxl {
         bool writeToFile(std::string filename);
         bool sortedWriteToFile(std::string filename);
         static MXL *parseMXL(const std::string &n);
-        void mergeMap(std::map<std::string, std::map<std::string, std::string>> &m);
+        void mergeMap(std::unordered_map<std::string, std::unordered_map<std::string, std::string>> &m);
         void mergeMap(MXL &m);
         bool keyValid(const std::string &cat, const std::string &key);
-        std::map<std::string, std::map<std::string, std::string>> &mxlmap() { return vars; }
-        std::map<std::string, std::map<std::string, std::string>> *operator->() { return &vars; }
+        std::unordered_map<std::string, std::unordered_map<std::string, std::string>> &mxlmap() { return vars; }
+        std::unordered_map<std::string, std::unordered_map<std::string, std::string>> *operator->() { return &vars; }
     private:
-        std::map<std::string, std::map<std::string, std::string>> vars;
+        std::unordered_map<std::string, std::unordered_map<std::string, std::string>> vars;
     };
     
     bool readSource();
